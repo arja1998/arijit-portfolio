@@ -65,16 +65,32 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
     setFormStatus('submitting');
 
-    // Prepare simulated submission / mailto fallback
-    setTimeout(() => {
-      setFormStatus('success');
-    }, 800);
+    try {
+      const body = new URLSearchParams({
+        'form-name': 'contact',
+        ...formData,
+      });
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+      } else {
+        setFormStatus('error');
+      }
+    } catch {
+      setFormStatus('error');
+    }
   };
 
   const handleReset = () => {
@@ -239,8 +255,34 @@ export default function Contact() {
                     </button>
                   </div>
                 </div>
+              ) : formStatus === 'error' ? (
+                <div className="text-center py-10 space-y-4 animate-in fade-in duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-red-500/10 text-red-600 dark:text-red-400 flex items-center justify-center mx-auto mb-4">
+                    <AlertCircle className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                    Something Went Wrong
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-md mx-auto leading-relaxed">
+                    Your message could not be sent. Please try again or email me directly at <strong>{personalInfo.email}</strong>.
+                  </p>
+                  <div className="pt-6">
+                    <button
+                      onClick={() => setFormStatus('idle')}
+                      className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold transition-colors"
+                    >
+                      Try Again
+                    </button>
+                  </div>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  <input type="hidden" name="form-name" value="contact" />
+                  <p className="hidden">
+                    <label>
+                      Don't fill this out: <input name="bot-field" />
+                    </label>
+                  </p>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                     Send a Project Inquiry or Message
                   </h3>
