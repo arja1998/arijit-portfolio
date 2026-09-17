@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Primary Meta Tags -->
+    <title>Arijit Koley | Full-Stack & Laravel Web Developer | Custom Web Development Services</title>
+    <meta name="title" content="Arijit Koley | Full-Stack & Laravel Web Developer | Custom Web Development Services" />
+    <meta name="description" content="Official portfolio & professional web development services of Arijit Koley (MCA, MAKAUT). Full-Stack Laravel developer specializing in commercial business platforms, REST APIs, MySQL architecture, and high-performance websites." />
+    <meta name="keywords" content="Arijit Koley, Laravel Developer, Full Stack Developer Kolkata, PHP MySQL Developer, React Developer, Custom Web Development, Web Application Engineer, Pradhan Banquet Group Web Developer" />
+    <meta name="author" content="Arijit Koley" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563EB" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arijitkoley.netlify.app" />
+    <meta property="og:title" content="Arijit Koley | Full-Stack & Laravel Web Developer" />
+    <meta property="og:description" content="Bespoke web applications, high-performance commercial websites, and full-stack engineering by Arijit Koley. Explore live commercial client platforms, GitHub repositories, and service offerings." />
+    <meta property="og:image" content="/images/arijit-koley.jpg" />
+    <meta property="og:site_name" content="Arijit Koley Portfolio" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://arijitkoley.netlify.app" />
+    <meta property="twitter:title" content="Arijit Koley | Full-Stack & Laravel Web Developer" />
+    <meta property="twitter:description" content="Bespoke web applications, high-performance commercial websites, and full-stack engineering by Arijit Koley." />
+    <meta property="twitter:image" content="/images/arijit-koley.jpg" />
+
+    <!-- Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Theme Sync Script to Prevent Flash -->
+    <script>
+      (function() {
+        try {
+          const saved = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased selection:bg-blue-600 selection:text-white transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
